@@ -1,0 +1,1 @@
+void Negentropy(char * chess);
