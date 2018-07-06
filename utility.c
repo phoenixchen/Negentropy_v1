@@ -651,9 +651,36 @@ char* IntToString(int integer){
 
 void Greedy(SOCKET sclient,char * chess,int my_chess_color,int turn){
 
-    int mychess[10];
+    if(turn<13){
+        switch(turn){
+            case 1:chess[locatetransform(-45)]=0;chess[locatetransform(-38)]=1;
+            break;
+            case 2:chess[locatetransform(45)]=0;chess[locatetransform(38)]=2;
+            break;
+            case 3:chess[locatetransform(-79)]=0;chess[locatetransform(-31)]=1;
+            break;
+            case 4:chess[locatetransform(79)]=0;chess[locatetransform(31)]=2;
+            break;
+            case 5:chess[locatetransform(-82)]=0;chess[locatetransform(-14)]=1;
+            break;
+            case 6:chess[locatetransform(82)]=0;chess[locatetransform(14)]=2;
+            break;
+            case 7:chess[locatetransform(-96)]=0;chess[locatetransform(-28)]=1;
+            break;
+            case 8:chess[locatetransform(96)]=0;chess[locatetransform(28)]=2;
+            break;
+            case 9:chess[locatetransform(-55)]=0;chess[locatetransform(-7)]=1;
+            break;
+            case 10:chess[locatetransform(55)]=0;chess[locatetransform(7)]=2;
+            break;
+            case 11:chess[locatetransform(-89)]=0;chess[locatetransform(-41)]=1;
+            break;
+            case 12:chess[locatetransform(89)]=0;chess[locatetransform(41)]=2;
+            break;
+        }
 
-    int j=0;
+        return;
+    }
 
     bool is_first;
 
@@ -661,6 +688,10 @@ void Greedy(SOCKET sclient,char * chess,int my_chess_color,int turn){
         is_first = true;
     if(my_chess_color ==2)
         is_first = false;
+
+    int mychess[10];
+
+    int j=0;
 
     char * chess_score = ScoreINIT(is_first);
 
