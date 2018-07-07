@@ -30,13 +30,32 @@ int main(int argc, char* argv[])
         enemy_chess_color = 1;
 
     int turn =0;
+    int increaseturn = 1;
 
     char *token=",";
     char *stringtok;
 
     while(1){
         if((turn+1) == myorder){
-            Greedy(sclient,chess,my_chess_color,turn+1);
+            if(increaseturn<13){
+                switch(increaseturn){
+                    case 1:chess[locatetransform(-45)]=0;chess[locatetransform(-38)]=1;send(sclient,"-45,-38",7,0);break;
+                    case 2:chess[locatetransform(45)]=0;chess[locatetransform(38)]=2;send(sclient,"45,38",5,0);break;
+                    case 3:chess[locatetransform(-79)]=0;chess[locatetransform(-31)]=1;send(sclient,"-79,-45,-31",11,0);break;
+                    case 4:chess[locatetransform(79)]=0;chess[locatetransform(31)]=2;send(sclient,"79,45,31",8,0);break;
+                    case 5:chess[locatetransform(-82)]=0;chess[locatetransform(-14)]=1;send(sclient,"-82,-48,-14",11,0);break;
+                    case 6:chess[locatetransform(82)]=0;chess[locatetransform(14)]=2;send(sclient,"82,48,14",8,0);break;
+                    case 7:chess[locatetransform(-96)]=0;chess[locatetransform(-28)]=1;send(sclient,"-96,-82,-48,-28",15,0);break;
+                    case 8:chess[locatetransform(96)]=0;chess[locatetransform(28)]=2;send(sclient,"96,82,48,28",11,0);break;
+                    case 9:chess[locatetransform(-55)]=0;chess[locatetransform(-7)]=1;send(sclient,"-55,-21,-7",10,0);break;
+                    case 10:chess[locatetransform(55)]=0;chess[locatetransform(7)]=2;send(sclient,"55,21,7",7,0);break;
+                    case 11:chess[locatetransform(-89)]=0;chess[locatetransform(-41)]=1;send(sclient,"-89,-55,-21,-41",15,0);break;
+                    case 12:chess[locatetransform(89)]=0;chess[locatetransform(41)]=2;send(sclient,"89,55,21,41",11,0);break;
+                }
+            }
+            else
+                Greedy(sclient,chess,my_chess_color,increaseturn);
+            increaseturn++;
         }
         else{
             if(order[turn]!=0){
@@ -71,9 +90,9 @@ int main(int argc, char* argv[])
                     }
                     initmsg();
                 }
+                increaseturn++;
             }
         }
-
         turn++;
         if(turn==6)
             turn =0;

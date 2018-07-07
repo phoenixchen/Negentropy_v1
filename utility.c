@@ -651,37 +651,6 @@ char* IntToString(int integer){
 
 void Greedy(SOCKET sclient,char * chess,int my_chess_color,int turn){
 
-    if(turn<13){
-        switch(turn){
-            case 1:chess[locatetransform(-45)]=0;chess[locatetransform(-38)]=1;
-            break;
-            case 2:chess[locatetransform(45)]=0;chess[locatetransform(38)]=2;
-            break;
-            case 3:chess[locatetransform(-79)]=0;chess[locatetransform(-31)]=1;
-            break;
-            case 4:chess[locatetransform(79)]=0;chess[locatetransform(31)]=2;
-            break;
-            case 5:chess[locatetransform(-82)]=0;chess[locatetransform(-14)]=1;
-            break;
-            case 6:chess[locatetransform(82)]=0;chess[locatetransform(14)]=2;
-            break;
-            case 7:chess[locatetransform(-96)]=0;chess[locatetransform(-28)]=1;
-            break;
-            case 8:chess[locatetransform(96)]=0;chess[locatetransform(28)]=2;
-            break;
-            case 9:chess[locatetransform(-55)]=0;chess[locatetransform(-7)]=1;
-            break;
-            case 10:chess[locatetransform(55)]=0;chess[locatetransform(7)]=2;
-            break;
-            case 11:chess[locatetransform(-89)]=0;chess[locatetransform(-41)]=1;
-            break;
-            case 12:chess[locatetransform(89)]=0;chess[locatetransform(41)]=2;
-            break;
-        }
-
-        return;
-    }
-
     bool is_first;
 
     if(my_chess_color ==1)
@@ -704,7 +673,7 @@ void Greedy(SOCKET sclient,char * chess,int my_chess_color,int turn){
     else
         mygoal = &secondgoal;
 
-    if(turn >= 145){
+    if(turn >= 120){
 
         int count=0;
         int lostone;
